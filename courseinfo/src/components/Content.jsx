@@ -2,6 +2,7 @@
 import Part from "./Part";
 
 const Content = (props)=>{
+    console.log(props)
     return(
         <ul>
             {

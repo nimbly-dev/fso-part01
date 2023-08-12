@@ -4,6 +4,7 @@ import Total from "./components/Total"
 
 const App = () => {
   //Did 1.3 on my 1.2 commit
+  //Did 1.4 on my 1.2 commit
   const course = {
     name: 'Half Stack application development',
     parts: [

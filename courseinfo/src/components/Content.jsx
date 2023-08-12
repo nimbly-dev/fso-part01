@@ -1,10 +1,21 @@
 /* eslint-disable react/prop-types */
-const Content = ({contentName,contentExercise})=>{
+import Part from "./Part";
+
+const Content = (props)=>{
     return(
-        <p>
-            {contentName} {contentExercise}
-        </p>
-    )
+        <ul>
+            {
+                props.parts.map((part)=>{
+                    return(
+                        <li key={part.key}>
+                            <Part contentName={part.name} contentExercise={part.exercises}/>
+                        </li>
+                    );
+
+                })
+            }
+        </ul>
+    )   
 }
 
 export default Content;

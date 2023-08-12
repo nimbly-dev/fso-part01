@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-const Total = (props)=>{
-    return(
-        <p>
-            Number of exercises {props.exercise1 + props.exercise2 + props.exercise3} 
-        </p>
+const Total = (props) => {
+    const totalExercises = props.parts.reduce((total, part) => total + part.exercises, 0);
+
+    return (
+      <p>
+        Number of exercise = {totalExercises}
+      </p>
     )
-}
+  }
 
 export default Total;

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 
-const Stat = ({label,count, appendToEndOfLine})=>{
+const Statistics = ({label,count, appendToEndOfLine})=>{
     if(appendToEndOfLine)
         return(
             <>
@@ -16,4 +16,4 @@ const Stat = ({label,count, appendToEndOfLine})=>{
         )
 }
 
-export default Stat;
+export default Statistics;

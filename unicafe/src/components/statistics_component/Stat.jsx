@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 
 
-const Statistics = ({label,count, appendToEndOfLine})=>{
+const Stat = ({label,count, appendToEndOfLine})=>{
     if(appendToEndOfLine)
         return(
-            <>
-                <p>{label} : {count} {appendToEndOfLine}</p>
-            </>
+            <tr>
+                <td>{label} : {count} {appendToEndOfLine}</td>
+            </tr>
         ) 
     else
         return(
-            <>
-                <p>{label} : {count} </p>
-            </>
+            <tr>
+                <td>{label} : {count} </td>
+            </tr>
         )
 }
 
-export default Statistics;
+export default Stat;

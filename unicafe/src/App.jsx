@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ /* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import Button from './components/Button'
 import Stat from './components/Stat'
@@ -15,11 +15,23 @@ function App() {
   }
 
   const handleNeutralClick = ()=>{
-    setGood(neutral + 1)
+    setNeutral(neutral + 1)
   }
 
   const handleBadClick = ()=>{
-    setGood(bad + 1)
+    setBad(bad + 1)
+  }
+
+  const getTotal = ()=>{
+    return good + neutral + bad
+  }
+  
+  const getAverage = ()=>{
+    return (good - bad)/(good + neutral +bad)
+  }
+
+  const getPositiveFeedback = ()=>{
+    return (good / (good + neutral + bad)) * 100
   }
 
   return (
@@ -34,6 +46,9 @@ function App() {
       <Stat count={good} label={'Good'}/>
       <Stat count={neutral} label={'Neutral'}/>
       <Stat count={bad} label={'Bad'}/>
+      <Stat count={getTotal()} label={('All')}/> 
+      <Stat count={getAverage()} label={'Average'}/>
+      <Stat count={getPositiveFeedback()} label={'Positive'} appendToEndOfLine={'%'}/>
     </>
   )
 }

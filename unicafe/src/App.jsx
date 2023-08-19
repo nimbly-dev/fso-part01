@@ -22,23 +22,6 @@ function App() {
     setBad(bad + 1)
   }
 
-  const getTotal = ()=>{
-    return good + neutral + bad
-  }
-  
-  const getAverage = ()=>{
-    if(!good || !neutral || !bad)
-      return 0
-    else
-      return (good - bad)/(good + neutral +bad)
-  }
-
-  const getPositiveFeedback = ()=>{
-    if(!good || !neutral || !bad)
-      return 0
-    else
-      return (good / (good + neutral + bad)) * 100
-  }
 
   return (
     <>
@@ -49,12 +32,7 @@ function App() {
       <Button label={'Bad'} handleClick={handleBadClick}/>
       <br/>
       <p><b>Statistics</b></p>
-      <Statistics count={good} label={'Good'}/>
-      <Statistics count={neutral} label={'Neutral'}/>
-      <Statistics count={bad} label={'Bad'}/>
-      <Statistics count={getTotal()} label={('All')}/> 
-      <Statistics count={getAverage()} label={'Average'}/>
-      <Statistics count={getPositiveFeedback()} label={'Positive'} appendToEndOfLine={'%'}/>
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </>
   )
 }

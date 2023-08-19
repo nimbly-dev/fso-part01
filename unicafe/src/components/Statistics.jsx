@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import Stat from './statistics_component/Stat'
 
+//Done 1.10: unicafe step5 on 1.9: unicafe step4 commit
 const Statistics = ({good,neutral,bad})=>{    
     const getTotal = ()=>{
         return good + neutral + bad

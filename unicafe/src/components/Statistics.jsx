@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import Stat from './statistics_component/Stat'
+import StatTableHeader from './statistics_component/StatTableHeader'
 
 //Done 1.10: unicafe step5 on 1.9: unicafe step4 commit
 const Statistics = ({good,neutral,bad})=>{    
@@ -26,14 +27,26 @@ const Statistics = ({good,neutral,bad})=>{
         return(<p>No Feedback Given</p>)
     else
         return(
-            <>
-                <Stat count={good} label={'Good'}/>
-                <Stat count={neutral} label={'Neutral'}/>
-                <Stat count={bad} label={'Bad'}/>
-                <Stat count={getTotal()} label={('All')}/> 
-                <Stat count={getAverage()} label={'Average'}/>
-                <Stat count={getPositiveFeedback()} label={'Positive'} appendToEndOfLine={'%'}/>
-            </>
+            <table>
+                    <StatTableHeader>
+                        <>Good</>
+                        <>Neutral</>
+                        <>Bad</>
+                        <>Total</>
+                        <>Average</>
+                        <>Postive Feedback</>
+                    </StatTableHeader>
+                <tbody>
+                    <tr>
+                        <Stat count={good}/>
+                        <Stat count={neutral}/>
+                        <Stat count={bad}/>
+                        <Stat count={getTotal()}/> 
+                        <Stat count={getAverage()}/>
+                        <Stat count={getPositiveFeedback()} appendToEndOfLine={'%'}/>
+                    </tr>
+                </tbody>
+            </table>
         )
 
 }

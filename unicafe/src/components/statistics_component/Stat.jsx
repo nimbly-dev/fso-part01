@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
 
 
-const Stat = ({label,count, appendToEndOfLine})=>{
+const Stat = ({count, appendToEndOfLine})=>{
     if(appendToEndOfLine)
         return(
-            <tr>
-                <td>{label} : {count} {appendToEndOfLine}</td>
-            </tr>
+            <>
+                <td>{count} {appendToEndOfLine}</td>
+            </>
         ) 
     else
         return(
-            <tr>
-                <td>{label} : {count} </td>
-            </tr>
+            <>
+                <td>{count} </td>
+            </>
         )
 }
 

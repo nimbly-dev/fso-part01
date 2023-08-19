@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Button from './components/Button'
 import Statistics from './components/Statistics'
 
+import './App.css'
+
 function App() {
 
   // save clicks of each button to its own state

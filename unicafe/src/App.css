@@ -1,0 +1,38 @@
+/* Define some basic styles for the table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style for the first row (header) */
+  tr:first-child th {
+    background-color: #ddd;
+  }
+  
+  /* Style for the first column (labels) */
+  tr td:first-child {
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* Style for the last column (percentage) */
+  tr td:last-child {
+    font-weight: bold;
+  }
+  
+  /* Add some margin to the table */
+  table {
+    margin: 20px 0;
+  }
+  

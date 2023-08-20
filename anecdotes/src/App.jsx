@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react'
+import Anecdote from './components/anecdote_components/Anecdote';
+import Button from './components/Button';
+import PopularAnecdote from './components/anecdote_components/PopularAnecdote';
 
 const App = () => {
   const anecdotes = [
@@ -16,7 +19,7 @@ const App = () => {
   const zeroFilledArray = new Array(anecdotes.length).fill(0);
    
   const [selected, setSelected] = useState(0)
-  const [popularAnecdote, setPopularAnecdote] = useState('')
+  const [popularAnecdoteIndex, setPopularAnecdoteIndex] = useState(0)
   const [voteValue, setVoteValue] = useState(zeroFilledArray)
 
   const handleRandomAnecdoteClick = ()=>{
@@ -27,16 +30,21 @@ const App = () => {
   const handleVoteClick = ()=>{
     const newVoteValue = {...voteValue}
     newVoteValue[selected]++;
+    if(newVoteValue[popularAnecdoteIndex] < newVoteValue[selected]){
+      setPopularAnecdoteIndex(selected)
+    }
 
     setVoteValue(newVoteValue)
-    console.log(newVoteValue)
   }
 
   return (
     <div>
-      <p>{anecdotes[selected]}</p>
-      <button onClick={()=>handleRandomAnecdoteClick()}>Next Anecdote</button>
-      <button onClick={()=>handleVoteClick()}>Vote Anecdote</button>
+      <p><b>Anecdote of the day</b></p>
+      <Anecdote anecdotes={anecdotes} selected={selected}/>
+      <Button handleClick={()=>handleRandomAnecdoteClick()} label={'Next Anecdote'}/>
+      <Button handleClick={()=>handleVoteClick()} label={'Vote Anecdote'}/>
+      <p><b>Anecdotes with most votes</b></p>
+      <PopularAnecdote anecdote={anecdotes[popularAnecdoteIndex]} voteValue={voteValue[popularAnecdoteIndex]}/>
     </div>
   )
 }
